@@ -3,7 +3,6 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from qrangeslider import QRangeSlider
 
-
 def setFolderHandler(configvar, window, isfolder=True):
     if not isfolder:
         configvar = QFileDialog.getOpenFileName(
@@ -13,7 +12,7 @@ def setFolderHandler(configvar, window, isfolder=True):
             'Text files (*.txt)'
         )[0]
     else:
-        configvar =  QFileDialog.getExistingDirectory(
+        configvar = QFileDialog.getExistingDirectory(
             window,
             "Open Directory",
             "/Users/michael"
@@ -21,11 +20,8 @@ def setFolderHandler(configvar, window, isfolder=True):
 
 
 def setTextHandler(text, configvar, window):
-    print(text)
-    if text.isnumeric():
-        configvar = int(text)
-    else:
-        configvar = 100
+    if text.isnumeric(): configvar = int(text)
+    else: configvar = 100
 
 
 def computePopulationBias(simulationData, observationData):
